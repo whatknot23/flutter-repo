@@ -28,10 +28,10 @@ class Home extends StatelessWidget {
                 handle:
                     NestedScrollView.sliverOverlapAbsorberHandleFor(context),
                 sliver: SliverAppBar(
-                    toolbarHeight: 250,
-                    backgroundColor: Colors.white,
+                    floating: true,
                     pinned: true,
-                    expandedHeight: 200.0,
+                    toolbarHeight: 250,
+                    backgroundColor: Color(0xFFE5E5E5),
                     forceElevated: innerBoxIsScrolled,
                     title: SafeArea(
                       child: Padding(
@@ -178,108 +178,114 @@ class Home extends StatelessWidget {
               ),
             ];
           },
-          body: TabBarView(
-            // These are the contents of the tab views, below the tabs.
-            children: _categories.map((String name) {
-              return SafeArea(
-                child: Builder(
-                  builder: (BuildContext context) {
-                    return CustomScrollView(
-                      key: PageStorageKey<String>(name),
-                      slivers: <Widget>[
-                        SliverOverlapInjector(
-                          handle:
-                              NestedScrollView.sliverOverlapAbsorberHandleFor(
-                                  context),
-                        ),
-                        SliverPadding(
-                          padding: const EdgeInsets.only(top: 10, bottom: 10),
-                          sliver: SliverFixedExtentList(
-                            itemExtent: 300,
-                            delegate: SliverChildBuilderDelegate(
-                              (BuildContext context, int index) {
-                                return GridView.builder(
-                                  physics: const ScrollPhysics(),
-                                  gridDelegate:
-                                      const SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 2,
-                                  ),
-                                  itemCount: 2,
-                                  itemBuilder:
-                                      (BuildContext context, int index) {
-                                    return Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 30, right: 30, top: 30),
-                                      child: Container(
-                                        height: 200,
-                                        width: 50,
-                                        decoration: BoxDecoration(
-                                            color: Color.fromARGB(
-                                                255, 255, 255, 255),
-                                            borderRadius:
-                                                BorderRadius.circular(20)),
-                                        child: Stack(
-                                            clipBehavior: Clip.none,
-                                            alignment:
-                                                AlignmentDirectional.center,
-                                            children: [
-                                              Positioned(
-                                                top: -30,
-                                                child: Image.asset(
-                                                  "assets/image.png",
-                                                ),
-                                              ),
-                                              Positioned(
-                                                top: 120,
-                                                child: Text(
-                                                  "Apple Watch",
-                                                  style: TextStyle(
-                                                    color: Colors.black,
-                                                    fontWeight: FontWeight.w600,
-                                                    fontSize: 22,
+          body: Material(
+            color: Color(0xFFE5E5E5),
+            child: TabBarView(
+              // These are the contents of the tab views, below the tabs.
+              children: _categories.map((String name) {
+                return SafeArea(
+                  child: Builder(
+                    builder: (BuildContext context) {
+                      return CustomScrollView(
+                        key: PageStorageKey<String>(name),
+                        slivers: <Widget>[
+                          SliverOverlapInjector(
+                            handle:
+                                NestedScrollView.sliverOverlapAbsorberHandleFor(
+                                    context),
+                          ),
+                          SliverPadding(
+                            padding: const EdgeInsets.only(top: 10, bottom: 10),
+                            sliver: SliverFixedExtentList(
+                              itemExtent: 300,
+                              delegate: SliverChildBuilderDelegate(
+                                (BuildContext context, int index) {
+                                  return GridView.builder(
+                                    physics: const ScrollPhysics(),
+                                    gridDelegate:
+                                        const SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount: 2,
+                                    ),
+                                    itemCount: 2,
+                                    itemBuilder:
+                                        (BuildContext context, int index) {
+                                      return Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 30, right: 30, top: 30),
+                                        child: Container(
+                                          height: 200,
+                                          width: 50,
+                                          decoration: BoxDecoration(
+                                              color: Color.fromARGB(
+                                                  255, 255, 255, 255),
+                                              borderRadius:
+                                                  BorderRadius.circular(20)),
+                                          child: Stack(
+                                              clipBehavior: Clip.none,
+                                              alignment:
+                                                  AlignmentDirectional.center,
+                                              children: [
+                                                Positioned(
+                                                  top: -30,
+                                                  child: Image.asset(
+                                                    "assets/image.png",
                                                   ),
                                                 ),
-                                              ),
-                                              Positioned(
-                                                top: 155,
-                                                child: Text(
-                                                  "Series 6. Red",
-                                                  style: TextStyle(
-                                                    color: Color.fromARGB(
-                                                        255, 106, 108, 119),
-                                                    fontWeight: FontWeight.w700,
-                                                    fontSize: 16,
+                                                Positioned(
+                                                  top: 120,
+                                                  child: Text(
+                                                    "Apple Watch",
+                                                    style: TextStyle(
+                                                      color: Colors.black,
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontSize: 22,
+                                                    ),
                                                   ),
                                                 ),
-                                              ),
-                                              Positioned(
-                                                top: 180,
-                                                child: Text(
-                                                  "\$360",
-                                                  style: TextStyle(
-                                                    color: Color.fromARGB(
-                                                        255, 56, 70, 148),
-                                                    fontWeight: FontWeight.w700,
-                                                    fontSize: 16,
+                                                Positioned(
+                                                  top: 155,
+                                                  child: Text(
+                                                    "Series 6. Red",
+                                                    style: TextStyle(
+                                                      color: Color.fromARGB(
+                                                          255, 106, 108, 119),
+                                                      fontWeight:
+                                                          FontWeight.w700,
+                                                      fontSize: 16,
+                                                    ),
                                                   ),
                                                 ),
-                                              )
-                                            ]),
-                                      ),
-                                    );
-                                  },
-                                );
-                              },
-                              childCount: 6,
+                                                Positioned(
+                                                  top: 180,
+                                                  child: Text(
+                                                    "\$360",
+                                                    style: TextStyle(
+                                                      color: Color.fromARGB(
+                                                          255, 56, 70, 148),
+                                                      fontWeight:
+                                                          FontWeight.w700,
+                                                      fontSize: 16,
+                                                    ),
+                                                  ),
+                                                )
+                                              ]),
+                                        ),
+                                      );
+                                    },
+                                  );
+                                },
+                                childCount: 6,
+                              ),
                             ),
                           ),
-                        ),
-                      ],
-                    );
-                  },
-                ),
-              );
-            }).toList(),
+                        ],
+                      );
+                    },
+                  ),
+                );
+              }).toList(),
+            ),
           ),
         ),
       ),

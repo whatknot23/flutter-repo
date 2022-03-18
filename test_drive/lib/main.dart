@@ -31,11 +31,12 @@ class _StackAndPositionedDemoState extends State<StackAndPositionedDemo> {
       ),
       body: Container(
         padding: EdgeInsets.all(10),
+        
         child: Stack(
           children: <Widget>[
             Positioned(
-              top: 100,
-              left: 100,
+              top: 30,
+              left: 30,
               height: 250,
               width: 250,
               child: Container(
