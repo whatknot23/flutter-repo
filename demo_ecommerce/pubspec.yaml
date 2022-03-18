@@ -61,6 +61,14 @@ flutter:
   assets:
     - assets/fruits-and-vegetables 1.png
     - assets/image.png
+    - assets/accessories.png
+    - assets/beauty.png
+    - assets/clothing.png
+    - assets/food.png
+    - assets/furniture.png
+    - assets/grocery.png
+    - assets/lifestyle.png
+    - assets/sports.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
