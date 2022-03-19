@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 class Home extends StatelessWidget {
   Home({Key? key}) : super(key: key);
   final List<String> _categories = [
-    "Foods",
     "Electronics",
+    "Foods",
     "Groceries",
     "Clothing",
     "Furniture",
@@ -28,11 +28,12 @@ class Home extends StatelessWidget {
                 handle:
                     NestedScrollView.sliverOverlapAbsorberHandleFor(context),
                 sliver: SliverAppBar(
-                    titleSpacing: AppBarTheme().titleSpacing,
+                    automaticallyImplyLeading: false,
+                    titleSpacing: 0,
                     floating: true,
                     pinned: true,
                     toolbarHeight: 330,
-                    backgroundColor: Color(0xFFE5E5E5),
+                    backgroundColor: Color.fromARGB(255, 245, 245, 245),
                     forceElevated: innerBoxIsScrolled,
                     title: SafeArea(
                       child: Padding(
@@ -207,7 +208,7 @@ class Home extends StatelessWidget {
             ];
           },
           body: Material(
-            color: Color(0xFFE5E5E5),
+            color: Color.fromARGB(255, 245, 245, 245),
             child: TabBarView(
               // These are the contents of the tab views, below the tabs.
               children: _categories.map((String name) {
@@ -221,743 +222,748 @@ class Home extends StatelessWidget {
                                 NestedScrollView.sliverOverlapAbsorberHandleFor(
                                     context),
                           ),
-                          SliverPadding(
-                            padding: const EdgeInsets.only(top: 0),
-                            sliver: SliverFixedExtentList(
-                              itemExtent: 200,
-                              delegate: SliverChildBuilderDelegate(
-                                (BuildContext context, int index) {
-                                  return GridView.builder(
-                                    physics: const ScrollPhysics(),
-                                    gridDelegate:
-                                        const SliverGridDelegateWithFixedCrossAxisCount(
-                                      crossAxisCount: 2,
-                                    ),
-                                    itemCount: 2,
-                                    itemBuilder:
-                                        (BuildContext context, int index) {
-                                      return name == "Electronics"
-                                          ? Padding(
-                                              padding: const EdgeInsets.only(
-                                                  left: 30, right: 30, top: 30),
-                                              child: Container(
-                                                height: 500,
-                                                width: 50,
-                                                decoration: BoxDecoration(
-                                                    color: Color.fromARGB(
-                                                        255, 255, 255, 255),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            20)),
-                                                child: Stack(
-                                                    clipBehavior: Clip.none,
-                                                    alignment:
-                                                        AlignmentDirectional
-                                                            .center,
-                                                    children: [
-                                                      Positioned(
-                                                        top: -40,
-                                                        child: Image.asset(
-                                                          "assets/image.png",
-                                                          height: 100,
-                                                          width: 100,
+                          SliverFixedExtentList(
+                            itemExtent: 230,
+                            delegate: SliverChildBuilderDelegate(
+                              (BuildContext context, int index) {
+                                return GridView.builder(
+                                  physics: const ScrollPhysics(),
+                                  gridDelegate:
+                                      const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2,
+                                  ),
+                                  itemCount: 2,
+                                  itemBuilder:
+                                      (BuildContext context, int index) {
+                                    return name == "Electronics"
+                                        ? Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 20, right: 20, top: 20),
+                                            child: Container(
+                                              height: 250,
+                                              width: 50,
+                                              decoration: BoxDecoration(
+                                                  color: Color.fromARGB(
+                                                      255, 255, 255, 255),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          20)),
+                                              child: Stack(
+                                                  clipBehavior: Clip.none,
+                                                  alignment:
+                                                      AlignmentDirectional
+                                                          .center,
+                                                  children: [
+                                                    Positioned(
+                                                      top: -30,
+                                                      child: Image.asset(
+                                                        "assets/image.png",
+                                                        height: 100,
+                                                        width: 100,
+                                                      ),
+                                                    ),
+                                                    Positioned(
+                                                      top: 90,
+                                                      child: Text(
+                                                        "Apple Watch",
+                                                        style: TextStyle(
+                                                          color: Colors.black,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          fontSize: 18,
                                                         ),
                                                       ),
-                                                      Positioned(
-                                                        top: 80,
-                                                        child: Text(
-                                                          "Apple Watch",
-                                                          style: TextStyle(
-                                                            color: Colors.black,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                            fontSize: 18,
-                                                          ),
+                                                    ),
+                                                    Positioned(
+                                                      top: 120,
+                                                      child: Text(
+                                                        "Series 6. Red",
+                                                        style: TextStyle(
+                                                          color: Color.fromARGB(
+                                                              255,
+                                                              106,
+                                                              108,
+                                                              119),
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                          fontSize: 16,
                                                         ),
                                                       ),
-                                                      Positioned(
-                                                        top: 110,
-                                                        child: Text(
-                                                          "Series 6. Red",
-                                                          style: TextStyle(
-                                                            color:
-                                                                Color.fromARGB(
-                                                                    255,
-                                                                    106,
-                                                                    108,
-                                                                    119),
-                                                            fontWeight:
-                                                                FontWeight.w700,
-                                                            fontSize: 16,
-                                                          ),
+                                                    ),
+                                                    Positioned(
+                                                      top: 150,
+                                                      child: Text(
+                                                        "\$360",
+                                                        style: TextStyle(
+                                                          color: Color.fromARGB(
+                                                              255, 56, 70, 148),
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                          fontSize: 16,
                                                         ),
-                                                      ),
-                                                      Positioned(
-                                                        top: 130,
-                                                        child: Text(
-                                                          "\$360",
-                                                          style: TextStyle(
-                                                            color:
-                                                                Color.fromARGB(
-                                                                    255,
-                                                                    56,
-                                                                    70,
-                                                                    148),
-                                                            fontWeight:
-                                                                FontWeight.w700,
-                                                            fontSize: 16,
-                                                          ),
-                                                        ),
-                                                      )
-                                                    ]),
-                                              ),
-                                            )
-                                          : name == "Foods"
-                                              ? Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          left: 30,
-                                                          right: 30,
-                                                          top: 30),
-                                                  child: Container(
-                                                    height: 200,
-                                                    width: 50,
-                                                    decoration: BoxDecoration(
-                                                        color: Color.fromARGB(
-                                                            255, 255, 255, 255),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(20)),
-                                                    child: Stack(
-                                                        clipBehavior: Clip.none,
-                                                        alignment:
-                                                            AlignmentDirectional
-                                                                .center,
-                                                        children: [
-                                                          Positioned(
-                                                            top: -40,
-                                                            child: Image.asset(
-                                                              "assets/food.png",
-                                                              height: 120,
-                                                              width: 100,
-                                                            ),
-                                                          ),
-                                                          Positioned(
-                                                            top: 90,
-                                                            child: Text(
-                                                              "Favourite Meal",
-                                                              style: TextStyle(
-                                                                color: Colors
-                                                                    .black,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
-                                                                fontSize: 18,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                          Positioned(
-                                                            top: 110,
-                                                            child: Text(
-                                                              "tasty treat",
-                                                              style: TextStyle(
-                                                                color: Color
-                                                                    .fromARGB(
-                                                                        255,
-                                                                        106,
-                                                                        108,
-                                                                        119),
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w700,
-                                                                fontSize: 16,
-                                                              ),
-                                                            ),
-                                                          ),
-                                                          Positioned(
-                                                            top: 130,
-                                                            child: Text(
-                                                              "\$60",
-                                                              style: TextStyle(
-                                                                color: Color
-                                                                    .fromARGB(
-                                                                        255,
-                                                                        56,
-                                                                        70,
-                                                                        148),
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w700,
-                                                                fontSize: 16,
-                                                              ),
-                                                            ),
-                                                          )
-                                                        ]),
-                                                  ),
-                                                )
-                                              : name == "Groceries"
-                                                  ? Padding(
-                                                      padding:
-                                                          const EdgeInsets.only(
-                                                              left: 30,
-                                                              right: 30,
-                                                              top: 30),
-                                                      child: Container(
-                                                        height: 200,
-                                                        width: 50,
-                                                        decoration: BoxDecoration(
-                                                            color:
-                                                                Color.fromARGB(
-                                                                    255,
-                                                                    255,
-                                                                    255,
-                                                                    255),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        20)),
-                                                        child: Stack(
-                                                            clipBehavior:
-                                                                Clip.none,
-                                                            alignment:
-                                                                AlignmentDirectional
-                                                                    .center,
-                                                            children: [
-                                                              Positioned(
-                                                                top: -40,
-                                                                child:
-                                                                    Image.asset(
-                                                                  "assets/grocery.png",
-                                                                  height: 120,
-                                                                  width: 120,
-                                                                ),
-                                                              ),
-                                                              Positioned(
-                                                                top: 120,
-                                                                child: Text(
-                                                                  "Best Deal",
-                                                                  style:
-                                                                      TextStyle(
-                                                                    color: Colors
-                                                                        .black,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w600,
-                                                                    fontSize:
-                                                                        22,
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                              Positioned(
-                                                                top: 155,
-                                                                child: Text(
-                                                                  "Any grocery",
-                                                                  style:
-                                                                      TextStyle(
-                                                                    color: Color
-                                                                        .fromARGB(
-                                                                            255,
-                                                                            106,
-                                                                            108,
-                                                                            119),
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w700,
-                                                                    fontSize:
-                                                                        16,
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                              Positioned(
-                                                                top: 180,
-                                                                child: Text(
-                                                                  "\$50",
-                                                                  style:
-                                                                      TextStyle(
-                                                                    color: Color
-                                                                        .fromARGB(
-                                                                            255,
-                                                                            56,
-                                                                            70,
-                                                                            148),
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w700,
-                                                                    fontSize:
-                                                                        16,
-                                                                  ),
-                                                                ),
-                                                              )
-                                                            ]),
                                                       ),
                                                     )
-                                                  : name == "Clothing"
-                                                      ? Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .only(
-                                                                  left: 30,
-                                                                  right: 30,
-                                                                  top: 30),
-                                                          child: Container(
-                                                            height: 200,
-                                                            width: 50,
-                                                            decoration: BoxDecoration(
-                                                                color: Color
-                                                                    .fromARGB(
-                                                                        255,
-                                                                        255,
-                                                                        255,
-                                                                        255),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            20)),
-                                                            child: Stack(
-                                                                clipBehavior:
-                                                                    Clip.none,
-                                                                alignment:
-                                                                    AlignmentDirectional
-                                                                        .center,
-                                                                children: [
-                                                                  Positioned(
-                                                                    top: -40,
-                                                                    child: Image
-                                                                        .asset(
-                                                                      "assets/clothing.png",
-                                                                      height:
-                                                                          120,
-                                                                      width:
-                                                                          120,
-                                                                    ),
-                                                                  ),
-                                                                  Positioned(
-                                                                    top: 120,
-                                                                    child: Text(
-                                                                      "Favourite Cloth",
-                                                                      style:
-                                                                          TextStyle(
-                                                                        color: Colors
-                                                                            .black,
-                                                                        fontWeight:
-                                                                            FontWeight.w600,
-                                                                        fontSize:
-                                                                            22,
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                  Positioned(
-                                                                    top: 155,
-                                                                    child: Text(
-                                                                      "Fashion Today",
-                                                                      style:
-                                                                          TextStyle(
-                                                                        color: Color.fromARGB(
-                                                                            255,
-                                                                            106,
-                                                                            108,
-                                                                            119),
-                                                                        fontWeight:
-                                                                            FontWeight.w700,
-                                                                        fontSize:
-                                                                            16,
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                  Positioned(
-                                                                    top: 180,
-                                                                    child: Text(
-                                                                      "\$40",
-                                                                      style:
-                                                                          TextStyle(
-                                                                        color: Color.fromARGB(
-                                                                            255,
-                                                                            56,
-                                                                            70,
-                                                                            148),
-                                                                        fontWeight:
-                                                                            FontWeight.w700,
-                                                                        fontSize:
-                                                                            16,
-                                                                      ),
-                                                                    ),
-                                                                  )
-                                                                ]),
+                                                  ]),
+                                            ),
+                                          )
+                                        : name == "Foods"
+                                            ? Padding(
+                                                padding: const EdgeInsets.only(
+                                                    left: 20,
+                                                    right: 20,
+                                                    top: 20),
+                                                child: Container(
+                                                  height: 250,
+                                                  width: 50,
+                                                  decoration: BoxDecoration(
+                                                      color: Color.fromARGB(
+                                                          255, 255, 255, 255),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              20)),
+                                                  child: Stack(
+                                                      clipBehavior: Clip.none,
+                                                      alignment:
+                                                          AlignmentDirectional
+                                                              .center,
+                                                      children: [
+                                                        Positioned(
+                                                          top: -40,
+                                                          child: Image.asset(
+                                                            "assets/food.png",
+                                                            height: 120,
+                                                            width: 100,
+                                                          ),
+                                                        ),
+                                                        Positioned(
+                                                          top: 90,
+                                                          child: Text(
+                                                            "Favourite Meal",
+                                                            style: TextStyle(
+                                                              color:
+                                                                  Colors.black,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                              fontSize: 18,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        Positioned(
+                                                          top: 120,
+                                                          child: Text(
+                                                            "tasty treat",
+                                                            style: TextStyle(
+                                                              color: Color
+                                                                  .fromARGB(
+                                                                      255,
+                                                                      106,
+                                                                      108,
+                                                                      119),
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w700,
+                                                              fontSize: 16,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        Positioned(
+                                                          top: 150,
+                                                          child: Text(
+                                                            "\$60",
+                                                            style: TextStyle(
+                                                              color: Color
+                                                                  .fromARGB(
+                                                                      255,
+                                                                      56,
+                                                                      70,
+                                                                      148),
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w700,
+                                                              fontSize: 16,
+                                                            ),
                                                           ),
                                                         )
-                                                      : name == "Furniture"
-                                                          ? Padding(
-                                                              padding:
-                                                                  const EdgeInsets
-                                                                          .only(
-                                                                      left: 30,
-                                                                      right: 30,
-                                                                      top: 30),
-                                                              child: Container(
-                                                                height: 200,
-                                                                width: 50,
-                                                                decoration: BoxDecoration(
-                                                                    color: Color
-                                                                        .fromARGB(
-                                                                            255,
-                                                                            255,
-                                                                            255,
-                                                                            255),
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            20)),
-                                                                child: Stack(
-                                                                    clipBehavior:
-                                                                        Clip
-                                                                            .none,
-                                                                    alignment:
-                                                                        AlignmentDirectional
-                                                                            .center,
-                                                                    children: [
-                                                                      Positioned(
-                                                                        top:
-                                                                            -40,
-                                                                        child: Image
-                                                                            .asset(
-                                                                          "assets/furniture.png",
-                                                                          height:
-                                                                              120,
-                                                                          width:
-                                                                              120,
-                                                                        ),
-                                                                      ),
-                                                                      Positioned(
-                                                                        top:
-                                                                            120,
-                                                                        child:
-                                                                            Text(
-                                                                          "Comfort and compact",
-                                                                          style:
-                                                                              TextStyle(
-                                                                            color:
-                                                                                Colors.black,
-                                                                            fontWeight:
-                                                                                FontWeight.w600,
-                                                                            fontSize:
-                                                                                22,
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                      Positioned(
-                                                                        top:
-                                                                            155,
-                                                                        child:
-                                                                            Text(
-                                                                          "Sleep. Sit. Sing",
-                                                                          style:
-                                                                              TextStyle(
-                                                                            color: Color.fromARGB(
-                                                                                255,
-                                                                                106,
-                                                                                108,
-                                                                                119),
-                                                                            fontWeight:
-                                                                                FontWeight.w700,
-                                                                            fontSize:
-                                                                                16,
-                                                                          ),
-                                                                        ),
-                                                                      ),
-                                                                      Positioned(
-                                                                        top:
-                                                                            180,
-                                                                        child:
-                                                                            Text(
-                                                                          "\$260",
-                                                                          style:
-                                                                              TextStyle(
-                                                                            color: Color.fromARGB(
-                                                                                255,
-                                                                                56,
-                                                                                70,
-                                                                                148),
-                                                                            fontWeight:
-                                                                                FontWeight.w700,
-                                                                            fontSize:
-                                                                                16,
-                                                                          ),
-                                                                        ),
-                                                                      )
-                                                                    ]),
+                                                      ]),
+                                                ),
+                                              )
+                                            : name == "Groceries"
+                                                ? Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            left: 20,
+                                                            right: 20,
+                                                            top: 20),
+                                                    child: Container(
+                                                      height: 250,
+                                                      width: 50,
+                                                      decoration: BoxDecoration(
+                                                          color: Color.fromARGB(
+                                                              255,
+                                                              255,
+                                                              255,
+                                                              255),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      20)),
+                                                      child: Stack(
+                                                          clipBehavior:
+                                                              Clip.none,
+                                                          alignment:
+                                                              AlignmentDirectional
+                                                                  .center,
+                                                          children: [
+                                                            Positioned(
+                                                              top: -30,
+                                                              child:
+                                                                  Image.asset(
+                                                                "assets/grocery.png",
+                                                                height: 120,
+                                                                width: 120,
+                                                              ),
+                                                            ),
+                                                            Positioned(
+                                                              top: 90,
+                                                              child: Text(
+                                                                "Best Deal",
+                                                                style:
+                                                                    TextStyle(
+                                                                  color: Colors
+                                                                      .black,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                  fontSize: 18,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            Positioned(
+                                                              top: 120,
+                                                              child: Text(
+                                                                "Any grocery",
+                                                                style:
+                                                                    TextStyle(
+                                                                  color: Color
+                                                                      .fromARGB(
+                                                                          255,
+                                                                          106,
+                                                                          108,
+                                                                          119),
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w700,
+                                                                  fontSize: 16,
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            Positioned(
+                                                              top: 150,
+                                                              child: Text(
+                                                                "\$50",
+                                                                style:
+                                                                    TextStyle(
+                                                                  color: Color
+                                                                      .fromARGB(
+                                                                          255,
+                                                                          56,
+                                                                          70,
+                                                                          148),
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w700,
+                                                                  fontSize: 16,
+                                                                ),
                                                               ),
                                                             )
-                                                          : name == "Sports"
-                                                              ? Padding(
-                                                                  padding: const EdgeInsets
-                                                                          .only(
-                                                                      left: 30,
-                                                                      right: 30,
-                                                                      top: 30),
-                                                                  child:
-                                                                      Container(
-                                                                    height: 200,
-                                                                    width: 50,
-                                                                    decoration: BoxDecoration(
-                                                                        color: Color.fromARGB(
-                                                                            255,
-                                                                            255,
-                                                                            255,
-                                                                            255),
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(20)),
-                                                                    child: Stack(
-                                                                        clipBehavior:
-                                                                            Clip
-                                                                                .none,
-                                                                        alignment:
-                                                                            AlignmentDirectional.center,
-                                                                        children: [
-                                                                          Positioned(
-                                                                            top:
-                                                                                -40,
-                                                                            child:
-                                                                                Image.asset(
-                                                                              "assets/sports.png",
-                                                                              height: 120,
-                                                                              width: 120,
-                                                                            ),
-                                                                          ),
-                                                                          Positioned(
-                                                                            top:
-                                                                                120,
-                                                                            child:
-                                                                                Text(
-                                                                              "Passion Game",
-                                                                              style: TextStyle(
-                                                                                color: Colors.black,
-                                                                                fontWeight: FontWeight.w600,
-                                                                                fontSize: 22,
-                                                                              ),
-                                                                            ),
-                                                                          ),
-                                                                          Positioned(
-                                                                            top:
-                                                                                155,
-                                                                            child:
-                                                                                Text(
-                                                                              "Live sports",
-                                                                              style: TextStyle(
-                                                                                color: Color.fromARGB(255, 106, 108, 119),
-                                                                                fontWeight: FontWeight.w700,
-                                                                                fontSize: 16,
-                                                                              ),
-                                                                            ),
-                                                                          ),
-                                                                          Positioned(
-                                                                            top:
-                                                                                180,
-                                                                            child:
-                                                                                Text(
-                                                                              "\$500",
-                                                                              style: TextStyle(
-                                                                                color: Color.fromARGB(255, 56, 70, 148),
-                                                                                fontWeight: FontWeight.w700,
-                                                                                fontSize: 16,
-                                                                              ),
-                                                                            ),
-                                                                          )
-                                                                        ]),
+                                                          ]),
+                                                    ),
+                                                  )
+                                                : name == "Clothing"
+                                                    ? Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                    .only(
+                                                                left: 20,
+                                                                right: 20,
+                                                                top: 20),
+                                                        child: Container(
+                                                          height: 250,
+                                                          width: 50,
+                                                          decoration: BoxDecoration(
+                                                              color: Color
+                                                                  .fromARGB(
+                                                                      255,
+                                                                      255,
+                                                                      255,
+                                                                      255),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          20)),
+                                                          child: Stack(
+                                                              clipBehavior:
+                                                                  Clip.none,
+                                                              alignment:
+                                                                  AlignmentDirectional
+                                                                      .center,
+                                                              children: [
+                                                                Positioned(
+                                                                  top: -45,
+                                                                  child: Image
+                                                                      .asset(
+                                                                    "assets/clothing.png",
+                                                                    height: 120,
+                                                                    width: 120,
+                                                                  ),
+                                                                ),
+                                                                Positioned(
+                                                                  top: 90,
+                                                                  child: Text(
+                                                                    "Favourite Cloth",
+                                                                    style:
+                                                                        TextStyle(
+                                                                      color: Colors
+                                                                          .black,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w600,
+                                                                      fontSize:
+                                                                          18,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Positioned(
+                                                                  top: 120,
+                                                                  child: Text(
+                                                                    "Fashion Today",
+                                                                    style:
+                                                                        TextStyle(
+                                                                      color: Color.fromARGB(
+                                                                          255,
+                                                                          106,
+                                                                          108,
+                                                                          119),
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w700,
+                                                                      fontSize:
+                                                                          16,
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                Positioned(
+                                                                  top: 150,
+                                                                  child: Text(
+                                                                    "\$40",
+                                                                    style:
+                                                                        TextStyle(
+                                                                      color: Color.fromARGB(
+                                                                          255,
+                                                                          56,
+                                                                          70,
+                                                                          148),
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w700,
+                                                                      fontSize:
+                                                                          16,
+                                                                    ),
                                                                   ),
                                                                 )
-                                                              : name ==
-                                                                      "Lifestyle"
-                                                                  ? Padding(
-                                                                      padding: const EdgeInsets
-                                                                              .only(
-                                                                          left:
-                                                                              30,
-                                                                          right:
-                                                                              30,
-                                                                          top:
-                                                                              30),
-                                                                      child:
-                                                                          Container(
+                                                              ]),
+                                                        ),
+                                                      )
+                                                    : name == "Furniture"
+                                                        ? Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                        .only(
+                                                                    left: 20,
+                                                                    right: 20,
+                                                                    top: 20),
+                                                            child: Container(
+                                                              height: 250,
+                                                              width: 50,
+                                                              decoration: BoxDecoration(
+                                                                  color: Color
+                                                                      .fromARGB(
+                                                                          255,
+                                                                          255,
+                                                                          255,
+                                                                          255),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              20)),
+                                                              child: Stack(
+                                                                  clipBehavior:
+                                                                      Clip.none,
+                                                                  alignment:
+                                                                      AlignmentDirectional
+                                                                          .center,
+                                                                  children: [
+                                                                    Positioned(
+                                                                      top: -40,
+                                                                      child: Image
+                                                                          .asset(
+                                                                        "assets/furniture.png",
                                                                         height:
-                                                                            200,
+                                                                            120,
                                                                         width:
-                                                                            50,
-                                                                        decoration: BoxDecoration(
-                                                                            color: Color.fromARGB(
-                                                                                255,
-                                                                                255,
-                                                                                255,
-                                                                                255),
-                                                                            borderRadius:
-                                                                                BorderRadius.circular(20)),
-                                                                        child: Stack(
-                                                                            clipBehavior:
-                                                                                Clip.none,
-                                                                            alignment: AlignmentDirectional.center,
-                                                                            children: [
-                                                                              Positioned(
-                                                                                top: -40,
-                                                                                child: Image.asset(
-                                                                                  "assets/lifestyle.png",
-                                                                                  height: 120,
-                                                                                  width: 120,
-                                                                                ),
-                                                                              ),
-                                                                              Positioned(
-                                                                                top: 120,
-                                                                                child: Text(
-                                                                                  "Your life your style",
-                                                                                  style: TextStyle(
-                                                                                    color: Colors.black,
-                                                                                    fontWeight: FontWeight.w600,
-                                                                                    fontSize: 22,
-                                                                                  ),
-                                                                                ),
-                                                                              ),
-                                                                              Positioned(
-                                                                                top: 155,
-                                                                                child: Text(
-                                                                                  "Get a life",
-                                                                                  style: TextStyle(
-                                                                                    color: Color.fromARGB(255, 106, 108, 119),
-                                                                                    fontWeight: FontWeight.w700,
-                                                                                    fontSize: 16,
-                                                                                  ),
-                                                                                ),
-                                                                              ),
-                                                                              Positioned(
-                                                                                top: 180,
-                                                                                child: Text(
-                                                                                  "\$1000",
-                                                                                  style: TextStyle(
-                                                                                    color: Color.fromARGB(255, 56, 70, 148),
-                                                                                    fontWeight: FontWeight.w700,
-                                                                                    fontSize: 16,
-                                                                                  ),
-                                                                                ),
-                                                                              )
-                                                                            ]),
+                                                                            120,
+                                                                      ),
+                                                                    ),
+                                                                    Positioned(
+                                                                      top: 90,
+                                                                      child:
+                                                                          Text(
+                                                                        "Feel Comfort",
+                                                                        style:
+                                                                            TextStyle(
+                                                                          color:
+                                                                              Colors.black,
+                                                                          fontWeight:
+                                                                              FontWeight.w600,
+                                                                          fontSize:
+                                                                              22,
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                    Positioned(
+                                                                      top: 120,
+                                                                      child:
+                                                                          Text(
+                                                                        "Sleep. Sit. Sing",
+                                                                        style:
+                                                                            TextStyle(
+                                                                          color: Color.fromARGB(
+                                                                              255,
+                                                                              106,
+                                                                              108,
+                                                                              119),
+                                                                          fontWeight:
+                                                                              FontWeight.w700,
+                                                                          fontSize:
+                                                                              16,
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                    Positioned(
+                                                                      top: 150,
+                                                                      child:
+                                                                          Text(
+                                                                        "\$260",
+                                                                        style:
+                                                                            TextStyle(
+                                                                          color: Color.fromARGB(
+                                                                              255,
+                                                                              56,
+                                                                              70,
+                                                                              148),
+                                                                          fontWeight:
+                                                                              FontWeight.w700,
+                                                                          fontSize:
+                                                                              16,
+                                                                        ),
                                                                       ),
                                                                     )
-                                                                  : name ==
-                                                                          "Accessories"
-                                                                      ? Padding(
-                                                                          padding: const EdgeInsets.only(
-                                                                              left: 30,
-                                                                              right: 30,
-                                                                              top: 30),
+                                                                  ]),
+                                                            ),
+                                                          )
+                                                        : name == "Sports"
+                                                            ? Padding(
+                                                                padding:
+                                                                    const EdgeInsets
+                                                                            .only(
+                                                                        left:
+                                                                            20,
+                                                                        right:
+                                                                            20,
+                                                                        top:
+                                                                            20),
+                                                                child:
+                                                                    Container(
+                                                                  height: 250,
+                                                                  width: 50,
+                                                                  decoration: BoxDecoration(
+                                                                      color: Color.fromARGB(
+                                                                          255,
+                                                                          255,
+                                                                          255,
+                                                                          255),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              20)),
+                                                                  child: Stack(
+                                                                      clipBehavior:
+                                                                          Clip
+                                                                              .none,
+                                                                      alignment:
+                                                                          AlignmentDirectional
+                                                                              .center,
+                                                                      children: [
+                                                                        Positioned(
+                                                                          top:
+                                                                              -30,
                                                                           child:
-                                                                              Container(
+                                                                              Image.asset(
+                                                                            "assets/sports.png",
                                                                             height:
-                                                                                200,
+                                                                                120,
                                                                             width:
-                                                                                50,
-                                                                            decoration:
-                                                                                BoxDecoration(color: Color.fromARGB(255, 255, 255, 255), borderRadius: BorderRadius.circular(20)),
-                                                                            child:
-                                                                                Stack(clipBehavior: Clip.none, alignment: AlignmentDirectional.center, children: [
-                                                                              Positioned(
-                                                                                top: -40,
-                                                                                child: Image.asset(
-                                                                                  "assets/accessories.png",
-                                                                                  height: 120,
-                                                                                  width: 120,
-                                                                                ),
-                                                                              ),
-                                                                              Positioned(
-                                                                                top: 120,
-                                                                                child: Text(
-                                                                                  "All Accessories",
-                                                                                  style: TextStyle(
-                                                                                    color: Colors.black,
-                                                                                    fontWeight: FontWeight.w600,
-                                                                                    fontSize: 22,
-                                                                                  ),
-                                                                                ),
-                                                                              ),
-                                                                              Positioned(
-                                                                                top: 155,
-                                                                                child: Text(
-                                                                                  "Available",
-                                                                                  style: TextStyle(
-                                                                                    color: Color.fromARGB(255, 106, 108, 119),
-                                                                                    fontWeight: FontWeight.w700,
-                                                                                    fontSize: 16,
-                                                                                  ),
-                                                                                ),
-                                                                              ),
-                                                                              Positioned(
-                                                                                top: 180,
-                                                                                child: Text(
-                                                                                  "\$100",
-                                                                                  style: TextStyle(
-                                                                                    color: Color.fromARGB(255, 56, 70, 148),
-                                                                                    fontWeight: FontWeight.w700,
-                                                                                    fontSize: 16,
-                                                                                  ),
-                                                                                ),
-                                                                              )
-                                                                            ]),
+                                                                                120,
+                                                                          ),
+                                                                        ),
+                                                                        Positioned(
+                                                                          top:
+                                                                              90,
+                                                                          child:
+                                                                              Text(
+                                                                            "Passion Game",
+                                                                            style:
+                                                                                TextStyle(
+                                                                              color: Colors.black,
+                                                                              fontWeight: FontWeight.w600,
+                                                                              fontSize: 18,
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                        Positioned(
+                                                                          top:
+                                                                              120,
+                                                                          child:
+                                                                              Text(
+                                                                            "Live sports",
+                                                                            style:
+                                                                                TextStyle(
+                                                                              color: Color.fromARGB(255, 106, 108, 119),
+                                                                              fontWeight: FontWeight.w700,
+                                                                              fontSize: 16,
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                        Positioned(
+                                                                          top:
+                                                                              150,
+                                                                          child:
+                                                                              Text(
+                                                                            "\$500",
+                                                                            style:
+                                                                                TextStyle(
+                                                                              color: Color.fromARGB(255, 56, 70, 148),
+                                                                              fontWeight: FontWeight.w700,
+                                                                              fontSize: 16,
+                                                                            ),
                                                                           ),
                                                                         )
-                                                                      : name ==
-                                                                              "Beauty"
-                                                                          ? Padding(
-                                                                              padding: const EdgeInsets.only(left: 30, right: 30, top: 30),
-                                                                              child: Container(
-                                                                                height: 200,
-                                                                                width: 50,
-                                                                                decoration: BoxDecoration(color: Color.fromARGB(255, 255, 255, 255), borderRadius: BorderRadius.circular(20)),
-                                                                                child: Stack(clipBehavior: Clip.none, alignment: AlignmentDirectional.center, children: [
-                                                                                  Positioned(
-                                                                                    top: -40,
-                                                                                    child: Image.asset(
-                                                                                      "assets/beauty.png",
-                                                                                      height: 120,
-                                                                                      width: 120,
-                                                                                    ),
-                                                                                  ),
-                                                                                  Positioned(
-                                                                                    top: 120,
-                                                                                    child: Text(
-                                                                                      "Outer You",
-                                                                                      style: TextStyle(
-                                                                                        color: Colors.black,
-                                                                                        fontWeight: FontWeight.w600,
-                                                                                        fontSize: 22,
-                                                                                      ),
-                                                                                    ),
-                                                                                  ),
-                                                                                  Positioned(
-                                                                                    top: 155,
-                                                                                    child: Text(
-                                                                                      "Inner You",
-                                                                                      style: TextStyle(
-                                                                                        color: Color.fromARGB(255, 106, 108, 119),
-                                                                                        fontWeight: FontWeight.w700,
-                                                                                        fontSize: 16,
-                                                                                      ),
-                                                                                    ),
-                                                                                  ),
-                                                                                  Positioned(
-                                                                                    top: 180,
-                                                                                    child: Text(
-                                                                                      "\$700",
-                                                                                      style: TextStyle(
-                                                                                        color: Color.fromARGB(255, 56, 70, 148),
-                                                                                        fontWeight: FontWeight.w700,
-                                                                                        fontSize: 16,
-                                                                                      ),
-                                                                                    ),
-                                                                                  )
-                                                                                ]),
+                                                                      ]),
+                                                                ),
+                                                              )
+                                                            : name ==
+                                                                    "Lifestyle"
+                                                                ? Padding(
+                                                                    padding: const EdgeInsets
+                                                                            .only(
+                                                                        left:
+                                                                            20,
+                                                                        right:
+                                                                            20,
+                                                                        top:
+                                                                            20),
+                                                                    child:
+                                                                        Container(
+                                                                      height:
+                                                                          200,
+                                                                      width: 50,
+                                                                      decoration: BoxDecoration(
+                                                                          color: Color.fromARGB(
+                                                                              255,
+                                                                              255,
+                                                                              255,
+                                                                              255),
+                                                                          borderRadius:
+                                                                              BorderRadius.circular(20)),
+                                                                      child: Stack(
+                                                                          clipBehavior: Clip
+                                                                              .none,
+                                                                          alignment:
+                                                                              AlignmentDirectional.center,
+                                                                          children: [
+                                                                            Positioned(
+                                                                              top: -40,
+                                                                              child: Image.asset(
+                                                                                "assets/lifestyle.png",
+                                                                                height: 120,
+                                                                                width: 120,
+                                                                              ),
+                                                                            ),
+                                                                            Positioned(
+                                                                              top: 90,
+                                                                              child: Text(
+                                                                                "Your life your style",
+                                                                                style: TextStyle(
+                                                                                  color: Colors.black,
+                                                                                  fontWeight: FontWeight.w600,
+                                                                                  fontSize: 18,
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                            Positioned(
+                                                                              top: 120,
+                                                                              child: Text(
+                                                                                "Get a life",
+                                                                                style: TextStyle(
+                                                                                  color: Color.fromARGB(255, 106, 108, 119),
+                                                                                  fontWeight: FontWeight.w700,
+                                                                                  fontSize: 16,
+                                                                                ),
+                                                                              ),
+                                                                            ),
+                                                                            Positioned(
+                                                                              top: 150,
+                                                                              child: Text(
+                                                                                "\$1000",
+                                                                                style: TextStyle(
+                                                                                  color: Color.fromARGB(255, 56, 70, 148),
+                                                                                  fontWeight: FontWeight.w700,
+                                                                                  fontSize: 16,
+                                                                                ),
                                                                               ),
                                                                             )
-                                                                          : Container();
-                                    },
-                                  );
-                                },
-                                childCount: 6,
-                              ),
+                                                                          ]),
+                                                                    ),
+                                                                  )
+                                                                : name ==
+                                                                        "Accessories"
+                                                                    ? Padding(
+                                                                        padding: const EdgeInsets.only(
+                                                                            left:
+                                                                                20,
+                                                                            right:
+                                                                                20,
+                                                                            top:
+                                                                                20),
+                                                                        child:
+                                                                            Container(
+                                                                          height:
+                                                                              200,
+                                                                          width:
+                                                                              50,
+                                                                          decoration: BoxDecoration(
+                                                                              color: Color.fromARGB(255, 255, 255, 255),
+                                                                              borderRadius: BorderRadius.circular(20)),
+                                                                          child: Stack(
+                                                                              clipBehavior: Clip.none,
+                                                                              alignment: AlignmentDirectional.center,
+                                                                              children: [
+                                                                                Positioned(
+                                                                                  top: -40,
+                                                                                  child: Image.asset(
+                                                                                    "assets/accessories.png",
+                                                                                    height: 120,
+                                                                                    width: 120,
+                                                                                  ),
+                                                                                ),
+                                                                                Positioned(
+                                                                                  top: 90,
+                                                                                  child: Text(
+                                                                                    "All Accessories",
+                                                                                    style: TextStyle(
+                                                                                      color: Colors.black,
+                                                                                      fontWeight: FontWeight.w600,
+                                                                                      fontSize: 18,
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                                Positioned(
+                                                                                  top: 120,
+                                                                                  child: Text(
+                                                                                    "Available",
+                                                                                    style: TextStyle(
+                                                                                      color: Color.fromARGB(255, 106, 108, 119),
+                                                                                      fontWeight: FontWeight.w700,
+                                                                                      fontSize: 16,
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                                Positioned(
+                                                                                  top: 150,
+                                                                                  child: Text(
+                                                                                    "\$100",
+                                                                                    style: TextStyle(
+                                                                                      color: Color.fromARGB(255, 56, 70, 148),
+                                                                                      fontWeight: FontWeight.w700,
+                                                                                      fontSize: 16,
+                                                                                    ),
+                                                                                  ),
+                                                                                )
+                                                                              ]),
+                                                                        ),
+                                                                      )
+                                                                    : name ==
+                                                                            "Beauty"
+                                                                        ? Padding(
+                                                                            padding: const EdgeInsets.only(
+                                                                                left: 20,
+                                                                                right: 20,
+                                                                                top: 20),
+                                                                            child:
+                                                                                Container(
+                                                                              height: 250,
+                                                                              width: 50,
+                                                                              decoration: BoxDecoration(color: Color.fromARGB(255, 255, 255, 255), borderRadius: BorderRadius.circular(20)),
+                                                                              child: Stack(clipBehavior: Clip.none, alignment: AlignmentDirectional.center, children: [
+                                                                                Positioned(
+                                                                                  top: -40,
+                                                                                  child: Image.asset(
+                                                                                    "assets/beauty.png",
+                                                                                    height: 120,
+                                                                                    width: 120,
+                                                                                  ),
+                                                                                ),
+                                                                                Positioned(
+                                                                                  top: 90,
+                                                                                  child: Text(
+                                                                                    "Outer You",
+                                                                                    style: TextStyle(
+                                                                                      color: Colors.black,
+                                                                                      fontWeight: FontWeight.w600,
+                                                                                      fontSize: 18,
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                                Positioned(
+                                                                                  top: 120,
+                                                                                  child: Text(
+                                                                                    "Inner You",
+                                                                                    style: TextStyle(
+                                                                                      color: Color.fromARGB(255, 106, 108, 119),
+                                                                                      fontWeight: FontWeight.w700,
+                                                                                      fontSize: 16,
+                                                                                    ),
+                                                                                  ),
+                                                                                ),
+                                                                                Positioned(
+                                                                                  top: 150,
+                                                                                  child: Text(
+                                                                                    "\$700",
+                                                                                    style: TextStyle(
+                                                                                      color: Color.fromARGB(255, 56, 70, 148),
+                                                                                      fontWeight: FontWeight.w700,
+                                                                                      fontSize: 16,
+                                                                                    ),
+                                                                                  ),
+                                                                                )
+                                                                              ]),
+                                                                            ),
+                                                                          )
+                                                                        : Container();
+                                  },
+                                );
+                              },
+                              childCount: 6,
                             ),
                           ),
                         ],
